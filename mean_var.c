@@ -5,11 +5,11 @@
 int main(void)
  {
     int i;
-    double n, arrayrandom[1000000],sum=0, mean, array[1000000], variance, diff=0;
+    double n, arrayrandom[1000000],sum=0, mean, array[1000000], variance, temp=0;
     srand((unsigned)time(NULL));            
     for(i = 0; i < 1000000; i++) 
     {                //1000000 random numbers
-        arrayrandom[i] = (double)rand() / RAND_MAX;      // from 0 to 1
+        arrayrandom[i] = (double)rand() / RAND_MAX;      // in the range 0 ... 1
         printf("%f\n", arrayrandom[i]);                   
     }
     for(i=0;i<1000000; i++)
@@ -17,12 +17,11 @@ int main(void)
     	sum=sum+arrayrandom[i];
     }
     mean=sum/1000000;
-
-    for(i=0;i<1000000; i++)
+    for(i=0;i<1000000;i++)
     {
-        diff=diff+pow(mean-arrayrandom[i],2);     
+        temp=temp+((arrayrandom[i])*(arrayrandom[i]));
     }
-    variance=diff/999999;
+    variance=(sum-temp)/999999;
     printf("mean = %f", mean);
     printf("variance = %f", variance);
     return 0;
