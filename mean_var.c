@@ -5,23 +5,24 @@
 int main(void)
  {
     int i;
-    double n, arrayrandom[1000000],sum=0, mean, array[1000000], variance, temp=0;
+    double n, arrayrandom[1000000],sum=0, mean, array[1000000], variance, temp, temp2=0;
     srand((unsigned)time(NULL));            
     for(i = 0; i < 1000000; i++) 
-    {                //1000000 random numbers
-        arrayrandom[i] = (double)rand() / RAND_MAX;      // in the range 0 ... 1
+    {
+        arrayrandom[i] = (double)rand() /RAND_MAX;
         printf("%f\n", arrayrandom[i]);                   
     }
     for(i=0;i<1000000; i++)
     {
-    	sum=sum+arrayrandom[i];
+     sum=sum+arrayrandom[i];
     }
     mean=sum/1000000;
     for(i=0;i<1000000;i++)
     {
-        temp=temp+((arrayrandom[i])*(arrayrandom[i]));
+        temp=mean-arrayrandom[i];
+        temp2=temp2+(temp*temp);
     }
-    variance=(sum-temp)/999999;
+    variance=temp2/999999;
     printf("mean = %f", mean);
     printf("variance = %f", variance);
     return 0;
