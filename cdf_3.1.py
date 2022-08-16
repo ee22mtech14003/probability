@@ -1,10 +1,6 @@
-#Importing numpy, scipy, mpmath and pyplot
+
 import numpy as np
 import matplotlib.pyplot as plt
-
-
-
-
 
 x = np.linspace(-5,25,30)#points on the x axis
 simlen = int(1e6) #number of samples
