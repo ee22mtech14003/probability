@@ -8,10 +8,9 @@ err = [] #declaring probability list
 randvar = np.random.normal(0,1,simlen)
 randvar = np.loadtxt('gauu.dat',dtype='double')
 for i in range(0,30):
-
 	err_ind = np.nonzero(randvar < x[i]) #checking probability condition
-err_n = np.size(err_ind) #computing the probability
-err.append(err_n/simlen) #storing the probability values in a list
+	err_n = np.size(err_ind) #computing the probability
+	err.append(err_n/simlen) #storing the probability values in a list
 
 	
 plt.plot(x.T,err)#plotting the CDF
